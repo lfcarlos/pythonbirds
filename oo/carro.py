@@ -76,7 +76,7 @@ seguintes atributos:
     >>> carro.calcular_velocidade()
     0
     >>> carro.calcular_direcao()
-    >>> 'Norte'
+    'Norte'
     >>> carro.girar_a_direita()
     >>> carro.calcular_direcao()
     'Leste'
@@ -87,6 +87,29 @@ seguintes atributos:
     >>> carro.calcular_direcao()
     'Oeste'
 """
+
+class Carro:
+    def __init__(self, direcao, motor):
+        self.direcao = direcao
+        self.motor = motor
+
+    def calcular_velocidade(self):
+        return self.motor.velocidade
+
+    def acelerar(self):
+        self.motor.acelerar()
+
+    def frear(self):
+        self.motor.frear()
+
+    def calcular_direcao(self):
+        return self.direcao.valor
+
+    def girar_a_direita(self):
+        self.direcao.girar_a_direita()
+
+    def girar_a_esquerda(self):
+        self.direcao.girar_a_esquerda()
 
 NORTE = 'Norte'
 SUL = 'Sul'
@@ -103,16 +126,9 @@ class Direcao:
     def girar_a_direita(self):
         self.valor = self.rotacao_a_direita_dct[self.valor]
         # QUANDO SE TEM UM SEQUENCIA GRANDE DE IF ELSE, POSSIVELMENTE VOCÊ CONSEGUE TROCAR POR UM DICIONÁRIO
-        # if self.valor == NORTE:
-        #     self.valor = LESTE
-        # elif self.valor == LESTE:
-        #     self.valor = SUL
-        # elif self.valor == SUL:
-        #     self.valor = OESTE
+
     def girar_a_esquerda(self):
         self.valor = self.rotacao_a_esquerda_dct[self.valor]
-
-
 
 
 class Motor:
